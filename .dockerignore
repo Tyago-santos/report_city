@@ -1,0 +1,35 @@
+# dependencies
+node_modules
+.pnp
+.pnp.*
+.yarn
+
+# build output
+.next
+out
+build
+
+# tooling caches
+.turbo
+.cache
+.eslintcache
+
+# tests / coverage
+coverage
+
+# env & secrets
+.env*
+
+# misc
+.DS_Store
+*.pem
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# vcs
+.git
+.gitignore
