@@ -1,27 +1,25 @@
 "use client";
 
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button } from "@/components/ui/button";
-import {
-  Field,
-  FieldDescription,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { loginSchema } from "../validation/registerValidation";
+import { registerSchema } from "../validation/registerValidation";
 import { handleFormData } from "../utils/helpers/registerHandle";
+import { useState } from "react";
+import { ButtonPassword } from "./ButtonPassword";
 
 export default function RegisterForm() {
+  const [showPassword, setShowPassword] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver(registerSchema),
   });
 
   return (
@@ -39,6 +37,29 @@ export default function RegisterForm() {
           )}
         </Field>
         <Field>
+          <FieldLabel
+            className="flex justify-between"
+            htmlFor="fieldgroup-password"
+          >
+            Password
+            <ButtonPassword
+              setShowPassword={setShowPassword}
+              showPassword={showPassword}
+            />
+          </FieldLabel>
+
+          <Input
+            {...register("password")}
+            id="fieldgroup-password"
+            placeholder="Digite sua senha"
+            type={showPassword ? "text" : "password"}
+          />
+        </Field>
+
+        {errors.password && (
+          <p className="text-red-500 text-sm">{errors.password.message}</p>
+        )}
+        <Field>
           <FieldLabel htmlFor="fieldgroup-email">Email</FieldLabel>
           <Input
             {...register("email")}
@@ -49,9 +70,6 @@ export default function RegisterForm() {
           {errors.email && (
             <p className="text-red-500 text-sm">{errors.email.message}</p>
           )}
-          <FieldDescription>
-            <Link href="/forget">Esqueceu sua senha?</Link>
-          </FieldDescription>
         </Field>
         <Field orientation="horizontal">
           <Button
