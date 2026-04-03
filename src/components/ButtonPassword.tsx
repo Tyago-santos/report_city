@@ -10,11 +10,7 @@ export const ButtonPassword = ({
   setShowPassword,
 }: ButtonPasswordProps) => {
   return (
-    <button
-      className="text-black font-normal"
-      type="button"
-      onClick={() => setShowPassword(!showPassword)}
-    >
+    <button type="button" onClick={() => setShowPassword(!showPassword)}>
       {showPassword ? "Ocultar senha?" : "Mostrar senha?"}
     </button>
   );

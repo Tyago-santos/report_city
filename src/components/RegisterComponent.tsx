@@ -3,9 +3,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button } from "@/components/ui/button";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
 import { registerSchema } from "../validation/registerValidation";
 import { handleFormData } from "../utils/helpers/registerHandle";
 import { useState } from "react";
@@ -24,62 +21,50 @@ export default function RegisterForm() {
 
   return (
     <form onSubmit={handleSubmit(handleFormData)}>
-      <FieldGroup className="w-[300px]">
-        <Field>
-          <FieldLabel htmlFor="fieldgroup-name">Name</FieldLabel>
-          <Input
+      <div>
+        <div>
+          <label htmlFor="fieldgroup-name">Name</label>
+          <input
             {...register("name")}
             id="fieldgroup-name"
             placeholder="Jordan Lee"
+            type="text"
           />
-          {errors.name && (
-            <p className="text-red-500 text-sm">{errors.name.message}</p>
-          )}
-        </Field>
-        <Field>
-          <FieldLabel
-            className="flex justify-between"
-            htmlFor="fieldgroup-password"
-          >
+          {errors.name && <p>{errors.name.message}</p>}
+        </div>
+
+        <div>
+          <label htmlFor="fieldgroup-password">
             Password
             <ButtonPassword
               setShowPassword={setShowPassword}
               showPassword={showPassword}
             />
-          </FieldLabel>
-
-          <Input
+          </label>
+          <input
             {...register("password")}
             id="fieldgroup-password"
             placeholder="Digite sua senha"
             type={showPassword ? "text" : "password"}
           />
-        </Field>
+          {errors.password && <p>{errors.password.message}</p>}
+        </div>
 
-        {errors.password && (
-          <p className="text-red-500 text-sm">{errors.password.message}</p>
-        )}
-        <Field>
-          <FieldLabel htmlFor="fieldgroup-email">Email</FieldLabel>
-          <Input
+        <div>
+          <label htmlFor="fieldgroup-email">Email</label>
+          <input
             {...register("email")}
             id="fieldgroup-email"
             type="text"
             placeholder="name@example.com"
           />
-          {errors.email && (
-            <p className="text-red-500 text-sm">{errors.email.message}</p>
-          )}
-        </Field>
-        <Field orientation="horizontal">
-          <Button
-            className="w-full cursor-pointer hover:bg-white hover:border-black border-2 hover:text-black"
-            type="submit"
-          >
-            Submit
-          </Button>
-        </Field>
-      </FieldGroup>
+          {errors.email && <p>{errors.email.message}</p>}
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </div>
     </form>
   );
 }
