@@ -10,7 +10,18 @@ import { ButtonPassword } from "./ButtonPassword";
 
 import { LockIcon, Mail, MapPin, User2Icon } from "lucide-react";
 
-export default function RegisterForm() {
+type DataType = {
+  name: string;
+  email: string;
+  password: string;
+  city: string;
+};
+
+type PropsType = {
+  onSubmit: (data: DataType) => void;
+};
+
+export default function RegisterForm({ onSubmit }: PropsType) {
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -22,7 +33,7 @@ export default function RegisterForm() {
   });
 
   return (
-    <form onSubmit={handleSubmit(handleFormData)}>
+    <form onSubmit={handleSubmit((data) => onSubmit(data))}>
       <div>
         <div>
           <label
