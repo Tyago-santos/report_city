@@ -11,7 +11,7 @@ export const ButtonPassword = ({
 }: ButtonPasswordProps) => {
   return (
     <button
-      className="font-normal "
+      className="font-normal md:text-sm "
       type="button"
       onClick={() => setShowPassword(!showPassword)}
     >

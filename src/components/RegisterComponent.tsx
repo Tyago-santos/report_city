@@ -33,11 +33,11 @@ export default function RegisterForm({ onSubmit }: PropsType) {
   });
 
   return (
-    <form onSubmit={handleSubmit((data) => onSubmit(data))}>
+    <form className=" w-100" onSubmit={handleSubmit((data) => onSubmit(data))}>
       <div>
         <div>
           <label
-            className="mb-2 font-semibold  text-[12px]"
+            className="mb-2 font-semibold  text-[12px] md:text-lg"
             htmlFor="fieldgroup-name"
           >
             Nome Completo
@@ -57,7 +57,7 @@ export default function RegisterForm({ onSubmit }: PropsType) {
         </div>
         <div>
           <label
-            className="mb-2 font-semibold  text-[12px]"
+            className="mb-2 font-semibold  text-[12px] md:text-lg"
             htmlFor="fieldgroup-email"
           >
             Endereço de Email
@@ -79,7 +79,9 @@ export default function RegisterForm({ onSubmit }: PropsType) {
         </div>
         <div>
           <div className="flex items-center justify-between font-semibold text-[12px] mb-2">
-            <label htmlFor="fieldgroup-password">Senha</label>
+            <label className="md:text-lg" htmlFor="fieldgroup-password">
+              Senha
+            </label>
             <ButtonPassword
               setShowPassword={setShowPassword}
               showPassword={showPassword}
@@ -103,7 +105,7 @@ export default function RegisterForm({ onSubmit }: PropsType) {
 
         <div>
           <label
-            className="flex align-center justify-between block font-semibold text-[12px] mb-2"
+            className="flex align-center justify-between block font-semibold md:text-lg text-[12px] mb-2"
             htmlFor="fieldgroup-city"
           >
             Cidade
@@ -123,7 +125,7 @@ export default function RegisterForm({ onSubmit }: PropsType) {
         </div>
 
         <button
-          className="mt-5 bg-primary w-full py-3 rounded-sm text-white font-semibold hover:bg-primary/90 transition-colors"
+          className="mt-5 bg-primary hover:cursor-pointer w-full py-3 rounded-sm text-white font-semibold hover:bg-primary/90 transition-colors"
           type="submit"
         >
           Cadastrar
