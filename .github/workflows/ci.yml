@@ -1,0 +1,24 @@
+name: Pipeline de CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: configurar node
+        uses: actions/checkout@v4
+        with:
+          node-version: "20"
+      - name: Instalar app
+        uses: pnpm install
+
+      - name: Execuatar test
+        uses: pnpm test
