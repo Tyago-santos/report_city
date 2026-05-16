@@ -4,11 +4,10 @@ import { Landmark, MenuIcon, Search } from "lucide-react";
 
 export default function Header() {
   return (
-    <WrapperPage>
-      {/*  desktop*/}
-      <>
-        <header className="hidden">
-          <nav>
+    <>
+      <header className="hidden">
+        <nav>
+          <WrapperPage>
             <Link href="/">
               <Landmark className="w-16 h-16 text-primary" />
             </Link>
@@ -24,12 +23,14 @@ export default function Header() {
                 <Link href="/favorites">Favoritos</Link>
               </li>
             </ul>
-          </nav>
-        </header>
+          </WrapperPage>
+        </nav>
+      </header>
 
-        {/* mobile */}
+      {/* mobile */}
 
-        <header className="w-full ">
+      <header className="w-full ">
+        <WrapperPage>
           <nav className="hidden">
             <Link href="/">
               <Landmark className="w-16 h-16 text-primary" />
@@ -49,18 +50,32 @@ export default function Header() {
           </nav>
 
           <nav className="flex  w-full justify-between py-5 ">
-            <Link className="flex gap-4" href="/">
-              <MenuIcon className="w-6 h-6 text-primary" />
+            <Link className="flex gap-4 " href="/">
+              <MenuIcon className="w-6 h-6 text-primary md:hidden" />
 
-              <span className="font-bold text-primary ">Report City</span>
+              <span className="font-bold text-primary md:text-2xl ">
+                Report City
+              </span>
             </Link>
 
-            <Link href="/search">
+            <Link className="md:hidden " href="/search">
               <Search className="w-6 h-6 text-text" />
             </Link>
+
+            <div
+              className="bg-black px-3 md:flex items-center bg-white shadow-md justify-between hidden 
+            rounded-md w-100"
+            >
+              <input
+                className="p-2 outline-none flex-1"
+                placeholder="  Faça pesquisa"
+                type="text"
+              />
+              <Search className="w-6 h-6 text-primary" />
+            </div>
           </nav>
-        </header>
-      </>
-    </WrapperPage>
+        </WrapperPage>
+      </header>
+    </>
   );
 }

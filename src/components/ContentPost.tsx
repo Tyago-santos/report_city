@@ -9,7 +9,10 @@ export default function ContentPost() {
     <WrapperPage>
       <div>
         {cityIssuePosts.map((post) => (
-          <article className="mt-5 bg-white rounded-lg " key={post.id}>
+          <article
+            className="mt-5 bg-white rounded-lg shadow-md "
+            key={post.id}
+          >
             <div>
               <Image
                 src={post.imageUrl}
@@ -25,8 +28,8 @@ export default function ContentPost() {
               <h3 className="text-text text-lg text-wrap font-bold">
                 {post.title}
               </h3>
-              <button className="bg-accent/50  text-accent px-3 text-[12px] font-bold rounded-full ">
-                Aconpanhar
+              <button className="hover:bg-accent/50 hover:cursor-pointer  bg-accent hover:border-accent/50 border text-white px-3 text-[12px] font-bold rounded-full ">
+                Acompanhar
               </button>
             </div>
 
