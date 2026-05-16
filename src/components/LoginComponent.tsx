@@ -31,17 +31,17 @@ export default function LoginForm({ onSubmit }: PropsType) {
   });
 
   return (
-    <form onSubmit={handleSubmit((data) => onSubmit(data))}>
+    <form className="w-80" onSubmit={handleSubmit((data) => onSubmit(data))}>
       <div>
         <div>
           <label
-            className="mb-2 font-semibold  text-sm"
+            className="mb-2 font-semibold  text-sm md:text-lg"
             htmlFor="fieldgroup-name"
           >
             Endereço de Email
           </label>
           <div className="flex align-center justify-center mb-2 mt-2 p-2 bg-gray-200  gap-2  rounded-md  ">
-            <Mail className="text-black/50 w-5 h-6 " />
+            <Mail className="text-black/50 w-5 h-6 md:h-10" />
             <input
               className="outline-none border-none flex-1"
               {...register("email")}
@@ -57,7 +57,7 @@ export default function LoginForm({ onSubmit }: PropsType) {
         </div>
         <div>
           <label
-            className="flex align-center justify-between block font-semibold text-sm mb-2"
+            className="flex align-center justify-between block font-semibold text-sm mb-2 md:text-lg  z"
             htmlFor="fieldgroup-email"
           >
             Senha
@@ -67,7 +67,7 @@ export default function LoginForm({ onSubmit }: PropsType) {
             />
           </label>
           <div className="flex align-center justify-center mb-2 mt-2 p-2 bg-gray-200  gap-2  rounded-md  ">
-            <LockIcon className="text-black/50 w-5 h-6 " />
+            <LockIcon className="text-black/50 w-5 h-6 md:h-10 " />
             <input
               className="flex-1 outline-none border-none "
               {...register("password")}
@@ -82,7 +82,7 @@ export default function LoginForm({ onSubmit }: PropsType) {
           )}
           <div>
             <Link
-              className="text-sm text-primary hover:underline"
+              className="text-sm text-primary hover:underline "
               href="/forget"
             >
               Esqueceu sua senha?
@@ -91,7 +91,7 @@ export default function LoginForm({ onSubmit }: PropsType) {
         </div>
 
         <button
-          className="mt-5 bg-primary w-full py-3 rounded-sm text-white font-semibold hover:bg-primary/90 transition-colors"
+          className="mt-5 bg-primary hover:cursor-pointer w-full py-3 rounded-sm text-white font-semibold hover:bg-primary/90 transition-colors"
           type="submit"
         >
           Logar
