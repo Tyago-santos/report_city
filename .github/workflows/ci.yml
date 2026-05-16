@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: "20"
       - name: Instalar app
-        uses: pnpm install
+        run: pnpm install
 
       - name: Execuatar test
-        uses: pnpm test
+        run: pnpm test
