@@ -1,21 +1,13 @@
 # Etapa 1: build
-FROM node:22 AS builder
+FROM node:22
 
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
+ENV NEXT_PUBLIC_URL=http://localhost:3000
 
 COPY . .
-RUN npm run build
-
-# Etapa 2: produção (leve)
-FROM node:22
-
-WORKDIR /app
-
-# Copia só o necessário
-COPY --from=builder /app ./
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
