@@ -10,7 +10,16 @@ import { ButtonPassword } from "./ButtonPassword";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function LoginForm() {
+type LoginData = {
+  email: string;
+  password: string;
+};
+
+type PropsType = {
+  onSubmit: (data: LoginData) => void;
+};
+
+export default function LoginForm({ onSubmit }: PropsType) {
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -22,7 +31,7 @@ export default function LoginForm() {
   });
 
   return (
-    <form onSubmit={handleSubmit(handleFormData)}>
+    <form onSubmit={handleSubmit((data) => onSubmit(data))}>
       <div>
         <div>
           <label
