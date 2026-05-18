@@ -3,7 +3,7 @@ name: Pipeline de CI
 on:
   push:
     branches:
-      - main
+      - test
 
 jobs:
   test:
@@ -23,3 +23,8 @@ jobs:
 
       - name: Execuatar test
         run: npm test
+
+      - name: Deploy na Render
+        env:
+          RENDER_DEPLOY_HOOK: ${{secrets.RENDER_DEPLOY_HOOK}}
+        run: curl -X POST  "$RENDER_DEPLOY_HOOK"
