@@ -5,7 +5,5 @@ type PropsType = {
 };
 
 export default function WrapperPage({ children }: PropsType) {
-  return (
-    <div className="md:max-w-3xl px-10 w-full  md:mx-auto">{children}</div>
-  );
+  return <div className="md:max-w-xl px-10 w-full  md:mx-auto">{children}</div>;
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { registerSchema } from "../registerValidation";
+import { registerSchema } from "@/src/validation/registerValidation";
 
 describe("registerValidation", () => {
   it("deve criar usuario novo sem erro", () => {

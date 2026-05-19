@@ -1,5 +1,5 @@
 import { expect, test, describe } from "vitest";
-import { loginSchema } from "../loginValidation.js";
+import { loginSchema } from "@/src/validation/loginValidation.js";
 
 describe("loginSchema", () => {
   test("should validate a valid email and password", () => {
