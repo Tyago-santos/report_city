@@ -33,7 +33,7 @@ export default function RegisterForm({ onSubmit }: PropsType) {
   });
 
   return (
-    <form className=" w-100" onSubmit={handleSubmit((data) => onSubmit(data))}>
+    <form className=" md:w-100" onSubmit={handleSubmit((data) => onSubmit(data))}>
       <div>
         <div>
           <label
