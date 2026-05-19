@@ -1,5 +1,3 @@
-"use client";
-
 import WrapperPage from "./WrapperPage";
 import Image from "next/image";
 import { MapPin, ThumbsUp, ThumbsDown, MessageCircle } from "lucide-react";
@@ -12,7 +10,7 @@ export default function ContentPost() {
       <div>
         {cityIssuePosts.map((post) => (
           <article
-            className="mt-5 bg-white rounded-lg shadow-md "
+            className="mt-5 bg-white rounded-lg shadow-md cursor-pointer "
             key={post.id}
           >
             <div>
@@ -26,13 +24,10 @@ export default function ContentPost() {
               />
             </div>
 
-            <div className="flex justify-between p-4">
+            <div className="flex flex-col justify-between p-4">
               <h3 className="text-text text-lg text-wrap font-bold">
                 {post.title}
               </h3>
-              <button className="hover:bg-accent/50 hover:cursor-pointer  bg-accent hover:border-accent/50 border text-white px-3 text-[12px] font-bold rounded-full ">
-                Acompanhar
-              </button>
             </div>
 
             <div className="px-4 flex items-center gap-2 pb-4">
@@ -50,17 +45,24 @@ export default function ContentPost() {
 
             <div className="p-4 flex gap-2 items-center justify-around ">
               <div className="flex gap-2">
-                <ThumbsUp className="text-text " />
+                <ThumbsUp className="text-text size-5 " />
                 <span>{post.likes}</span>
               </div>
               <div className="flex gap-2">
-                <ThumbsDown className="text-text " />
+                <ThumbsDown className="text-text size-5  " />
                 <span>{post.dislikes}</span>
               </div>
               <div className="flex gap-2">
-                <MessageCircle className="text-text " />
+                <MessageCircle className="text-text size-5  " />
                 <span>{post.comments}</span>
               </div>
+
+              <button
+                className="hover:bg-accent/50 hover:cursor-pointer  bg-accent  
+              hover:border-accent/50 border text-white py-2 px-3 md:text-[12px] text-[8px] font-bold rounded-full "
+              >
+                Favoritar
+              </button>
             </div>
           </article>
         ))}
