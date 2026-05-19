@@ -1,8 +1,12 @@
+"use client";
 import Link from "next/link";
 import WrapperPage from "./WrapperPage";
 import { Landmark, MenuIcon, Search } from "lucide-react";
+import { modalStore } from "../store/modalStore";
 
 export default function Header() {
+  const { toggleOpen } = modalStore();
+
   return (
     <>
       <header className="hidden">
@@ -32,9 +36,9 @@ export default function Header() {
       <header className="w-full ">
         <WrapperPage>
           <nav className="hidden">
-            <Link href="/">
+            <button>
               <Landmark className="w-16 h-16 text-primary" />
-            </Link>
+            </button>
 
             <ul>
               <li>
@@ -50,13 +54,17 @@ export default function Header() {
           </nav>
 
           <nav className="flex  w-full justify-between py-5 ">
-            <Link className="flex gap-4 " href="/">
+            <button
+              onClick={toggleOpen}
+              aria-label="Abrir botão"
+              className="flex gap-4 "
+            >
               <MenuIcon className="w-6 h-6 text-primary md:hidden" />
 
               <span className="font-bold text-primary md:text-2xl ">
                 Report City
               </span>
-            </Link>
+            </button>
 
             <Link className="md:hidden " href="/search">
               <Search className="w-6 h-6 text-text" />

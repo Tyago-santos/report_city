@@ -1,3 +1,5 @@
+"use client";
+
 import WrapperPage from "./WrapperPage";
 import Image from "next/image";
 import { MapPin, ThumbsUp, ThumbsDown, MessageCircle } from "lucide-react";
