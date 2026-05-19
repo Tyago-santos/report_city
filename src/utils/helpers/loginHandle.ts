@@ -1,5 +1,11 @@
+"use server";
+
 import LoginType from "@/src/types/loginType";
 
-export const handleFormData = (data: LoginType) => {
-  console.log(data);
-};
+import { redirect } from "next/navigation";
+
+export default async function handleFormData(data: LoginType) {
+  if (data) {
+    redirect("/");
+  }
+}
